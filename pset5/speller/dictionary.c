@@ -36,7 +36,6 @@ bool check(const char* word)
     int bucket = hash(word);
     wordFromDictionary = hashTable[bucket];
     while (wordFromDictionary != NULL){
-        
         if (strcasecmp(wordFromDictionary->word, word) == 0)
             return true;
         wordFromDictionary = wordFromDictionary->next;
@@ -54,13 +53,11 @@ bool load(const char* dictionary)
         return false;
     while (fscanf(dict, "%s\n", word) != EOF){
         struct node *new = malloc(sizeof(struct node));
-        new->word = malloc(strlen(word));
+        new->word = malloc(strlen(word) + 1);
 
-  
         strcpy(new->word, word);
         int hashValue = hash(word);
 
-        
         if (hashTable[hashValue] == NULL){
             new->next = NULL;
             hashTable[hashValue] = new;
@@ -77,8 +74,8 @@ bool load(const char* dictionary)
 
 int hash(const char* word)
 {
-    int index = tolower(word[0]);
-    return index % HASHTABLE;
+    int index = tolower(word[0])-'a';
+    return index;
 }
 
 /**

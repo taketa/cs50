@@ -36,7 +36,7 @@ bool check(const char* word)
     int bucket = hash(word);
     wordFromDictionary = hashTable[bucket];
     while (wordFromDictionary != NULL){
-        // use strcasecmp to be case insensitive
+        
         if (strcasecmp(wordFromDictionary->word, word) == 0)
             return true;
         wordFromDictionary = wordFromDictionary->next;
@@ -56,11 +56,11 @@ bool load(const char* dictionary)
         struct node *new = malloc(sizeof(struct node));
         new->word = malloc(strlen(word));
 
-        // copy word into pointer
+  
         strcpy(new->word, word);
         int hashValue = hash(word);
 
-        // if new belongs at head, prepend
+        
         if (hashTable[hashValue] == NULL){
             new->next = NULL;
             hashTable[hashValue] = new;
