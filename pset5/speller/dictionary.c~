@@ -18,7 +18,7 @@
 int hash(const char* word);
 const int HASHTABLE = 26;
 int count = 0;
-char word[LENGTH];
+char word[LENGTH + 1];
 
 struct node{
     char *word;
