@@ -33,8 +33,8 @@ struct node *hashTable[HASHTABLE];
 bool check(const char* word)
 {
     struct node* wordFromDictionary = malloc(sizeof(struct node));
-    int bucket = hash(word);
-    wordFromDictionary = hashTable[bucket];
+    int box = hash(word);
+    wordFromDictionary = hashTable[box];
     while (wordFromDictionary != NULL){
         if (strcasecmp(wordFromDictionary->word, word) == 0)
             return true;
