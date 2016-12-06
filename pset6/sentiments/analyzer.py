@@ -9,13 +9,12 @@ class Analyzer():
         self.negatives = negatives
         self.sentiment_score = 0
         
-
     def analyze(self, text):
         """Analyze text for sentiment, returning its score."""
         self.sentiment_score = 0
         token = TweetTokenizer()
-    
         text_list = token.tokenize(text)
+        # check the entire text for positive or negative value and sum all positive and negative
         for text in text_list:
             for word in open(self.positives).readlines():
                 if text == word.rstrip():

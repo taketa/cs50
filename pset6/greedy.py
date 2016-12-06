@@ -1,9 +1,11 @@
 import cs50
 coins = cs50.get_float()*100
 change = 0
+# quantity of coins must be > 0
 while (coins<0):
-    print("Coins must be positive!")
+    print("Quantity of coins must be positive!")
     coins = cs50.get_float()*100
+# check for quantity of coins of different value
 while coins:
     if (coins - 25) >= 0:
         coins -= 25

@@ -21,4 +21,4 @@ def main():
             print(colored("%s %s", "yellow")% (score, i))
 if __name__ == "__main__":
     main()
-# TODO
+
